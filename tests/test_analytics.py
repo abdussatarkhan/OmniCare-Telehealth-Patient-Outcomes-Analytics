@@ -12,13 +12,15 @@ def test_wait_time_sla():
 def test_escalation_rate_bound():
     escalations = 318
     total_consults = 10000
-    assert (escalations / total_consults) * 100.0 == 3.18
+    assert round((escalations / total_consults) * 100.0, 2) == pytest.approx(3.18)
+
 
 
 def test_sla_compliance_bounds():
     compliant = 9400
     total = 10000
-    assert (compliant / total) * 100.0 == 94.0
+    assert round((compliant / total) * 100.0, 2) == pytest.approx(94.0)
+
 
 def test_data_integrity():
     metric_val = 1420.50
